@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/plants" => "plants#index"
+  get "/plants/:id" => "plants#show"
   post "/plants" => "plants#create"
 end
