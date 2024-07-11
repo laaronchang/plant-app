@@ -8,11 +8,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  # PLANTS Routes
   get "/plants" => "plants#index"
   get "/plants/:id" => "plants#show"
   post "/plants" => "plants#create"
   patch "/plants/:id" => "plants#update"
   delete "/plants/:id" => "plants#destroy"
 
+  # USER Routes
   post "/users" => "users#create"
+
+  # SESSIONS Routes
+  post "/sessions" => "sessions#create"
 end
