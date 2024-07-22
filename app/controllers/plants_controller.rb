@@ -1,8 +1,16 @@
 class PlantsController < ApplicationController
 
+  # def index
+  #   @plants = Plant.all
+  #   render :index
+  # end
+
   def index
+    p "hello"
+    p current_user
+    # @plants = Plant.where(user_id: current_user.id)
     @plants = Plant.all
-    render :index
+    render template: "plants/index"
   end
 
   def create
@@ -13,8 +21,15 @@ class PlantsController < ApplicationController
       sun_amount: params[:sun_amount],
       days_water: params[:days_water],
       description: params[:description],
+      user_id: current_user.id
     )
-    render :show
+    # render :show
+    # below new
+    if @plant.save
+      render template: "plants/show"
+    else
+      render json: {errors: @plant.errors.full_messages}
+    end
   end
 
   def show
