@@ -7,3 +7,4 @@ json.days_water plant.days_water
 json.description plant.description
 json.created_at plant.created_at
 json.updated_at plant.updated_at
+json.user plant.user
